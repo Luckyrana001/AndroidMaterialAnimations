@@ -26,6 +26,7 @@
         android:id="@+id/profilePic"
         android:scaleX="0"
         android:scaleY="0"
+        android:transitionName="profile_pic"
         />
 
     <TextView
@@ -36,7 +37,9 @@
         android:layout_marginTop="10dp"
         android:visibility="invisible"
         android:textColor="@android:color/black"
-        android:text="Hello World, This is animation demo!" />
+        android:text="Hello World, This is animation demo!"
+        android:transitionName="welcome"
+        />
 
 
 

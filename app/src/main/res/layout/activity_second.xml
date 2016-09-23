@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#cdcdcd"
+    >
+
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:layout_margin="20dp"
+    android:background="#ffffff"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        app:srcCompat="@drawable/avatar"
+        android:transitionName="profile_pic"
+        android:id="@+id/profile_pic" />
+
+    <TextView
+        android:text="Welcome abc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/welcome"
+        android:textSize="15sp"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toRightOf="@+id/profile_pic"
+        android:layout_marginLeft="16dp"
+        tools:ignore="MissingConstraints"
+        android:transitionName="welcome"
+        android:layout_alignParentTop="true" />
+
+</RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

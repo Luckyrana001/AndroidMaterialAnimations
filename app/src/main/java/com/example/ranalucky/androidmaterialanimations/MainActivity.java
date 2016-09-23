@@ -6,8 +6,11 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
+import android.app.ActivityOptions;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Pair;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.EditText;
@@ -32,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
     }
     private void setLayout() {
         welcome = findViewById(R.id.welecomeLabel);
-        loginBtn = findViewById(R.id.loginBtn);
         emailEt = (EditText)findViewById(R.id.emailEt);
         container = findViewById(R.id.container);
 
@@ -48,6 +50,27 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        loginBtn = findViewById(R.id.loginBtn);
+        loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+               openSecondAnimation();
+            }
+        });
+    }
+
+    private void openSecondAnimation() {
+        Intent openSecondActivity = new Intent(getApplicationContext(),SecondActivity.class);
+        ActivityOptions opt = ActivityOptions.makeSceneTransitionAnimation(
+                this,
+                new Pair<View,String>(welcome,"welcome"),
+                new Pair<View,String>(profilePic,"profile_pic")
+        );
+
+
+        startActivity(openSecondActivity,opt.toBundle());
     }
 
 
