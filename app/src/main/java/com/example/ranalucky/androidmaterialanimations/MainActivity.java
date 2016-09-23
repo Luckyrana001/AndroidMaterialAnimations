@@ -30,9 +30,29 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    private void setLayout() {
+        welcome = findViewById(R.id.welecomeLabel);
+        loginBtn = findViewById(R.id.loginBtn);
+        emailEt = (EditText)findViewById(R.id.emailEt);
+        container = findViewById(R.id.container);
+
+        profilePic = findViewById(R.id.profilePic);
+
+        emailEt.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(!hasFocus && emailEt.getText().toString().equals("abc"))
+                {
+                    changeProfilePic();
+                }
+            }
+        });
+
+    }
 
 
-    /*alpha change animation on first time window will get focus */
+    /*  All animations starting from here
+    alpha change animation on first time window will get focus */
     @Override
     public void onWindowFocusChanged(boolean hasFocus)
     {
@@ -103,25 +123,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void setLayout() {
-        welcome = findViewById(R.id.welecomeLabel);
-        loginBtn = findViewById(R.id.loginBtn);
-        emailEt = (EditText)findViewById(R.id.emailEt);
-        container = findViewById(R.id.container);
-
-        profilePic = findViewById(R.id.profilePic);
-
-        emailEt.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if(!hasFocus && emailEt.getText().toString().equals("abc"))
-                {
-                    changeProfilePic();
-                }
-            }
-        });
-
-    }
 
     private void changeProfilePic() {
         profilePic.animate().rotationY(90).setDuration(500).setListener(new AnimatorListenerAdapter() {
